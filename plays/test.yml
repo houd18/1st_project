@@ -1,8 +1,10 @@
 ---
 - name: "Installation Nginx"
 
-- hosts: appservers
+  hosts: appservers
   tasks:
-    - name: ping
-      ping:
+    - name: installation Nginx
+      yum:
+        name: nginx
+        state: present
   

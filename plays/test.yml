@@ -1,0 +1,8 @@
+---
+- name: "Installation Nginx"
+
+- hosts: appservers
+  tasks:
+    - name: ping
+      ping:
+  

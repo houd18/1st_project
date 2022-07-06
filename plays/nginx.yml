@@ -1,0 +1,19 @@
+---
+- name: "Installation Nginx"
+
+  hosts: appservers
+  become: true
+  pre_tasks:
+    - name: epel release install
+      yum:
+        name: epel-release
+        state: present
+  tasks:
+    - name: installation Nginx
+      yum:
+        name: nginx
+        state: present
+    - name: start service
+      service:
+        name: nginx
+        state: started  

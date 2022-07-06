@@ -1,0 +1,20 @@
+---
+- name: "Installation Apache"
+
+  hosts: appservers
+  become: true
+  pre_tasks:
+    - name: epel release install
+      yum:
+        name: epel-release
+        state: present
+  tasks:
+    - name: installation httpd
+      yum:
+        name: httpd
+        state: present
+    - name: start service apache
+      systemd:
+        name: httpd
+        state: restarted
+        enabled: yes

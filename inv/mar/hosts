@@ -2,6 +2,6 @@
 ansible_user=admin
 ansible_password=admin
 [all]
-10.0.2.4
+10.0.1.4
 [appservers]
-10.0.2.4 env=PROD
+10.0.1.4 env=PROD

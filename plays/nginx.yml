@@ -13,7 +13,29 @@
       yum:
         name: nginx
         state: present
+    
+    - name: create a directory
+      file:
+        path: /var/www/anass.com
+        state: directory
+        mode: '0775'
+        owner: admin
+        groupe: admin
+        
+    - name: delete default directory
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+    
+    - name: copy my template
+      template:
+        src: site.conf.j2
+        dest: /etc/nginx/sites-enabled/anass.com  
+        mode: '0775'
+        owner: admin
+        groupe: admin
+        
     - name: start service
       service:
         name: nginx
-        state: started  
+        state: restarted  
